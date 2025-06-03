@@ -24,4 +24,15 @@ func main() {
 
 	var myString string = "this is a string"
 	fmt.Println(myString)
+
+	var myString1 = "string1" /*type is infered here*/
+	fmt.Println(myString1)
+
+	myString2, myStirng3 := "string2", "string3" /*short hand for defining var or const*/
+	fmt.Println(myString2, myStirng3)
+
+	/*var vs const*/
+	var variable string
+	const constant string = "const needs an init value but var doesn't"
+	fmt.Println(variable, constant)
 }
