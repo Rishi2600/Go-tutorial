@@ -25,6 +25,10 @@ func main() {
 	var myString string = "this is a string"
 	fmt.Println(myString)
 
+	var age1 int = 56
+	var age2 int = 18
+	fmt.Printf("the age of first guy is %v and the age of second guy is %v \n", age1, age2)
+
 	var myString1 = "string1" /*type is infered here*/
 	fmt.Println(myString1)
 

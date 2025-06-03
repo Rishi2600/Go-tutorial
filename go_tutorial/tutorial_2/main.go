@@ -7,6 +7,12 @@ func main() {
 	greet(props)
 
 	printMe()
+
+	var num int = 50
+	var den int = 5
+	var value int = intDivision(num, den)
+	fmt.Println(value)
+
 }
 
 func printMe() {
@@ -15,4 +21,9 @@ func printMe() {
 
 func greet(props string) {
 	fmt.Println(props)
+}
+
+func intDivision(num int, den int) int {
+	var result int = num / den
+	return result
 }
