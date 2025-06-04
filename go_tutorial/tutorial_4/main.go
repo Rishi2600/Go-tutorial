@@ -22,6 +22,13 @@ func main() {
 	fmt.Printf("The length is %v with capactiy %v \n", len(intSliceArr), cap(intSliceArr))
 	fmt.Println(intSliceArr)
 
+	var myMap map[string]uint8 = make(map[string]uint8)
+	fmt.Println(myMap)
+
+	myMap2 := map[string]string{"name": "rishi", "age": "23"} /*short hand for map --key value pair.*/
+	fmt.Println(myMap2)
+	fmt.Println(myMap2["name"])
+
 }
 
 /*Array in Go has fixed length, Same type, indexable and contiguous memory.*/
