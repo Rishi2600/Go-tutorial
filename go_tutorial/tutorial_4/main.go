@@ -15,6 +15,13 @@ func main() {
 	fmt.Println(&intArr[0])
 	fmt.Println(&intArr[1])
 	fmt.Println(&intArr[2])
+
+	var intSliceArr []int32 = []int32{1, 2, 3}
+	fmt.Printf("The length is %v with capactiy %v \n", len(intSliceArr), cap(intSliceArr))
+	intSliceArr = append(intSliceArr, 556)
+	fmt.Printf("The length is %v with capactiy %v \n", len(intSliceArr), cap(intSliceArr))
+	fmt.Println(intSliceArr)
+
 }
 
 /*Array in Go has fixed length, Same type, indexable and contiguous memory.*/
