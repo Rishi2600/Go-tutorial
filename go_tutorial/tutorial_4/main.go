@@ -28,7 +28,29 @@ func main() {
 	myMap2 := map[string]string{"name": "rishi", "age": "23"} /*short hand for map --key value pair.*/
 	fmt.Println(myMap2)
 	fmt.Println(myMap2["name"])
+	delete(myMap, "age")
 
+	for name := range myMap2 {
+		fmt.Printf("Name: %v \n", name)
+	}
+
+	var i int
+	for {
+		if i >= 10 {
+			break
+		}
+		fmt.Println(i)
+		i = i + 1
+	}
+
+	for i < 10 {
+		fmt.Println(i)
+		i = i + 1
+	}
+
+	for i := 0; i < 10; i++ {
+		fmt.Println(i)
+	}
 }
 
 /*Array in Go has fixed length, Same type, indexable and contiguous memory.*/
