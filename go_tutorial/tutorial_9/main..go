@@ -1,18 +1,34 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"math/rand"
+	"time"
+)
+
+var MAX_PRICE float32 = 5
 
 func main() {
-	var c = make(chan int)
-	go process(c)
-	for i := range c {
-		fmt.Println(i)
+	var myChannel = make(chan string)
+	var websites = []string{"amazon", "flipkart", "walmart"}
+
+	for i := range websites {
+		go checkPrice(websites[i], myChannel)
+	}
+	sendMessage(myChannel)
+}
+
+func checkPrice(websites string, myChannel chan string) {
+	for {
+		time.Sleep(time.Second * 1)
+		var price = rand.Float32() * 20
+		if price <= MAX_PRICE {
+			myChannel <- websites
+			break
+		}
 	}
 }
 
-func process(c chan int) {
-	for i := 0; i < 5; i++ {
-		c <- i
-	}
-	close(c)
+func sendMessage(myChannel chan string) {
+	fmt.Printf("found a deal on %v \n", <-myChannel)
 }
