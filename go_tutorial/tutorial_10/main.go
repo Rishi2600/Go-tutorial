@@ -4,22 +4,15 @@ import "fmt"
 
 func main() {
 	var intSlice = []int{1, 2, 3}
-	fmt.Println(sumIntSlice(intSlice))
+	fmt.Println(sumSlice[int](intSlice))
 
-	var float32Slice = []float32{1, 2, 3}
-	fmt.Println(sumFloat32Slice(float32Slice))
+	var floatSlice = []float32{1, 2, 3}
+	fmt.Println(sumSlice[float32](floatSlice))
+
 }
 
-func sumIntSlice(slice []int) int {
-	var sum int
-	for _, v := range slice {
-		sum += v
-	}
-	return sum
-}
-
-func sumFloat32Slice(slice []float32) float32 {
-	var sum float32
+func sumSlice[T int | float32 | float64](slice []T) T {
+	var sum T
 	for _, v := range slice {
 		sum += v
 	}
