@@ -32,3 +32,5 @@ func checkPrice(websites string, myChannel chan string) {
 func sendMessage(myChannel chan string) {
 	fmt.Printf("found a deal on %v \n", <-myChannel)
 }
+
+/*chennel helps to make the process parallel working along with goroutines*/
