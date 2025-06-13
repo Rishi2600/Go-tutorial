@@ -33,3 +33,4 @@ func dbCall(i int) {
 }
 
 /*with using GoRoutine, we can achieve some level of parallel execution as long as there is a mutli core CPU(we usually do have it).*/
+/*some more execution using goroutine is yet to be done*/
