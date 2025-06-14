@@ -28,3 +28,9 @@ func square(thing2 [5]float64) [5]float64 {
 }
 
 /*pointer is a variable that stores the memory address of another variable*/
+/*pointer allows direct manipulation of memory and provides a way to access and modify the value at the referenced address*/
+/*if you have an integer variable x, you can declare a pointer to it using *int,
+	and assign the memory address of x to the pointer using the & operator. eg -
+var x int = 10
+var p *int
+p = &x*/
