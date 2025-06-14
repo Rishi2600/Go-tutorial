@@ -26,3 +26,5 @@ func square(thing2 [5]float64) [5]float64 {
 	}
 	return thing2
 }
+
+/*pointer is a variable that stores the memory address of another variable*/
