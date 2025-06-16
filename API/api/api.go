@@ -1,5 +1,10 @@
 package api
 
+// import (
+// 	"encoding/json"
+// 	"net/http"
+// )
+
 /*few structs to represent parameters for endpoints and responses*/
 
 //coin balance params
