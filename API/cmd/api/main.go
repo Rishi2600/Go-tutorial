@@ -2,15 +2,24 @@ package main
 
 import (
 	"fmt"
+	"net/http"
 
+	"github.com/Rishi2600/Go-tutorial/internal/handlers"
 	"github.com/go-chi/chi"
 	log "github.com/sirupsen/logrus"
 )
 
 func main() {
-	r := chi.NewRouter()
-	fmt.Println(r)
+	log.SetReportCaller(true)
 
-	log.Info(r)
+	var r *chi.Mux = chi.NewRouter()
+	handlers.Handler(r)
 
+	fmt.Println("starting the GO API server")
+
+	err := http.ListenAndServe("localhost:8000", r)
+
+	if err != nil {
+		log.Error(err)
+	}
 }
