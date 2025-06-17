@@ -23,3 +23,5 @@ func main() {
 		log.Error(err)
 	}
 }
+
+/*server skeletal*/
