@@ -5,6 +5,10 @@ import "fmt"
 type messageTosend struct {
 	phoneNumber int64
 	message     string
+	number      struct {
+		area string
+		code int8
+	}
 }
 
 func main() {
