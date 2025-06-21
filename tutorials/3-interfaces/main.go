@@ -1,9 +1,6 @@
 package main
 
-import (
-	"fmt"
-	"math"
-)
+import "fmt"
 
 type shape interface {
 	area() float32
@@ -11,25 +8,8 @@ type shape interface {
 }
 
 type rect struct {
-	height float32
 	width  float32
-}
-
-type circle struct {
-	radius float32
-}
-
-func main() {
-	var rect rect = rect{
-		height: 55,
-		width:  4,
-	}
-	fmt.Println(rect)
-
-	var circle circle = circle{
-		radius: 5,
-	}
-	fmt.Println(circle)
+	height float32
 }
 
 func (r rect) area() float32 {
@@ -37,13 +17,31 @@ func (r rect) area() float32 {
 }
 
 func (r rect) perimeter() float32 {
-	return 2*r.width + 2*r.height
+	return 2 * (r.width + r.height)
 }
 
-func (c circle) area() float32 {
-	return math.Pi * c.radius * c.radius
+type square struct {
+	side float32
 }
 
-func (c circle) perimeter() float32 {
-	return 2 * math.Pi * c.radius
+func (s square) area() float32 {
+	return s.side * s.side
+}
+
+func (s square) perimeter() float32 {
+	return 4 * s.side
+}
+
+func print(shape shape) {
+	fmt.Printf("area is %v \n", shape.area())
+	fmt.Printf("perimeter is %v \n", shape.perimeter())
+
+}
+
+func main() {
+	var s square = square{side: 12}
+	var r rect = rect{height: 5, width: 6}
+
+	print(s)
+	print(r)
 }
