@@ -1,6 +1,7 @@
 package main
 
 import (
+	"fmt"
 	"math"
 )
 
@@ -19,7 +20,16 @@ type circle struct {
 }
 
 func main() {
+	var rect rect = rect{
+		height: 55,
+		width:  4,
+	}
+	fmt.Println(rect)
 
+	var circle circle = circle{
+		radius: 5,
+	}
+	fmt.Println(circle)
 }
 
 func (r rect) area() float32 {
