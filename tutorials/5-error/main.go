@@ -12,6 +12,6 @@ func main() {
 
 func getUser() (string, error) {
 	var result = "Hello"
-	var err error = nil
+	var err error = fmt.Errorf("there is an error")
 	return result, err
 }
