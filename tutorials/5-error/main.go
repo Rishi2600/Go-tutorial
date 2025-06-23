@@ -3,14 +3,15 @@ package main
 import "fmt"
 
 func main() {
-	var user, err = getUser()
+	user, err := getUser()
 	if err != nil {
 		fmt.Println(err)
 	}
 	fmt.Println(user)
 }
 
-func getUser() string {
+func getUser() (string, error) {
 	var result = "Hello"
-	return result
+	var err error = nil
+	return result, err
 }
