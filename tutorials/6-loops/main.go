@@ -3,15 +3,14 @@ package main
 import "fmt"
 
 func main() {
-	var sum1 int = 0
-	for i := 0; i < 10; i++ {
-		sum1 += i //sum = sum + i
+	var value = 0
+	for i := range 10 {
+		if i%2 == 0 {
+			continue
+		}
+		value += i
 	}
-
-	var sum2 int = 0
-	for j := range 10 {
-		sum2 += j
-	}
-
-	fmt.Println(sum1, sum2)
+	fmt.Println(value)
 }
+
+/*i:= range 10 means i := 0; i < 10; i++*/
