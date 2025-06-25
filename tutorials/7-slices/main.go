@@ -4,9 +4,11 @@ import "fmt"
 
 func main() {
 
-	var slice []string = []string{"rishi", "is", "the", "best"}
+	var array [5]int = [5]int{1, 2, 3, 4, 5}
+
+	var slice = array[1:4]
+
+	fmt.Println(array)
 	fmt.Println(slice)
 
 }
-
-/*slice is a flexible, dynamically-sized abstraction over an array.*/
