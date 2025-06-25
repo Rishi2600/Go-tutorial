@@ -4,8 +4,8 @@ import "fmt"
 
 func main() {
 
-	var emptySlice []int32
-	fmt.Println(emptySlice)
+	var slice []string = []string{"rishi", "is", "the", "best"}
+	fmt.Println(slice)
 
 }
 
