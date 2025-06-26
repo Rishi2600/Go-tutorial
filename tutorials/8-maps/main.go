@@ -14,4 +14,13 @@ func main() {
 
 	delete(age, "grandma")
 	fmt.Println(age)
+
+	key := "gojo"
+	value, exists := age[key]
+
+	if exists {
+		fmt.Printf("value of %v is: %v", key, value)
+	} else {
+		fmt.Println("\n value not found, hence deleted")
+	}
 }
