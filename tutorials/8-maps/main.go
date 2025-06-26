@@ -24,3 +24,6 @@ func main() {
 		fmt.Println("\n value not found, hence deleted")
 	}
 }
+
+/*The second variable
+(whether you name it ok, exists, found, or something else) will be a bool that indicates whether the key was found in the map.*/
