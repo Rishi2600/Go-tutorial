@@ -19,10 +19,13 @@ func main() {
 	value, exists := age[key]
 
 	if exists {
-		fmt.Printf("value of %v is: %v", key, value)
+		fmt.Printf("value of %v is: %v \n", key, value)
 	} else {
 		fmt.Println("\n value not found, hence deleted")
 	}
+
+	age["tanjiro"] = 18
+	fmt.Println(age)
 }
 
 /*The second variable
