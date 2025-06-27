@@ -26,6 +26,9 @@ func main() {
 
 	age["tanjiro"] = 18
 	fmt.Println(age)
+
+	var elem = age["rishi"]
+	fmt.Println(elem)
 }
 
 /*The second variable
