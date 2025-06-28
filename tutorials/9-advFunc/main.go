@@ -13,6 +13,11 @@ func main() {
 
 	fmt.Println(double(3))
 	fmt.Println(triple(3))
+
+	numbers := []int{1, 2, 3, 4}
+	doubled := mapInts(double, numbers)
+
+	fmt.Println(doubled)
 }
 
 func sum(a int, b int) int {
@@ -31,4 +36,16 @@ func multiplier(number int) func(int) int {
 	return func(a int) int {
 		return a * number
 	}
+}
+
+func mapInts(f func(int) int, nums []int) []int {
+	result := make([]int, len(nums))
+	for i, v := range nums {
+		result[i] = f(v)
+	}
+	return result
+}
+
+func double(x int) int {
+	return x * 2
 }
