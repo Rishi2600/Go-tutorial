@@ -8,6 +8,8 @@ func main() {
 
 	var b int = a
 	fmt.Println(b)
+	var bPtr *int = &b
+	fmt.Println(bPtr)
 
 	var z *int = &a
 	fmt.Println(z)
@@ -16,6 +18,7 @@ func main() {
 	*z = 9
 	fmt.Println(*z)
 	fmt.Println(a)
+	fmt.Println(b)
 
 }
 
