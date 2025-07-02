@@ -53,7 +53,3 @@ func main() {
 	}
 }
 
-/*Array in Go has fixed length, Same type, indexable and contiguous memory.*/
-/*in JavaScript, we can do "const mixedArray = [1, "string", {key: "value"}, function() {}]", but not in Go*/
-/*in typescript, the approach is as same as Go, but can be managed accordingly "const arr: (string | number)[] = ['a', 1]"*/
-/*Error: Argument of type '{ name: string; }' is not assignable to parameter of type 'string | number'*/
