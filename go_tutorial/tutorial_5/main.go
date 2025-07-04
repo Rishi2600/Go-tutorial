@@ -4,7 +4,7 @@ import "fmt"
 
 func main() {
 	var myString = []rune("rèsumè")
-	var indexed = myString[1]
+	var indexed = myString[0]
 	fmt.Println(myString)
 	fmt.Println(indexed)
 }
