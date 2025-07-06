@@ -12,10 +12,17 @@ func expensiveOp(str string) {
 }
 
 func main() {
+
+	time1 := time.Now()
+
 	expensiveOp("first")
 	expensiveOp("second")
 
 	time.Sleep(time.Second * 2)
 
 	fmt.Println("Done")
+
+	timeTaken := time.Since(time1)
+
+	fmt.Printf("time taken: %v \n", timeTaken)
 }
