@@ -15,8 +15,8 @@ func main() {
 
 	time1 := time.Now()
 
-	expensiveOp("first")
-	expensiveOp("second")
+	go expensiveOp("first")
+	go expensiveOp("second")
 
 	time.Sleep(time.Second * 2)
 
