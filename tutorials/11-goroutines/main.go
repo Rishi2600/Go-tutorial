@@ -17,6 +17,12 @@ func main() {
 
 	go expensiveOp("first")
 	go expensiveOp("second")
+	go expensiveOp("third")
+	go expensiveOp("fourth")
+	go expensiveOp("fifth")
+	go expensiveOp("sixth")
+	go expensiveOp("seventh")
+	go expensiveOp("eighth")
 
 	time.Sleep(time.Second * 2)
 
