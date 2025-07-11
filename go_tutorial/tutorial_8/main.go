@@ -32,4 +32,4 @@ func dbCall(i int) {
 	waitGroups.Done()
 }
 
-/*with using GoRoutine, we can achieve some level of parallel execution as long as there is a mutli core CPU(we usually do have it).*/
+/*with using GoRoutine, we can achieve some level of parallel execution.*/
