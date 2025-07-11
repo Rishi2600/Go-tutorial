@@ -13,6 +13,7 @@ var results = []string{}
 
 func main() {
 	t0 := time.Now()
+	defer deferFunc()
 	for i := range dbData {
 		waitGroups.Add(1)
 		go dbCall(i)
@@ -20,6 +21,10 @@ func main() {
 	waitGroups.Wait()
 	fmt.Printf("total execution time: %v \n", time.Since(t0))
 	fmt.Printf("the results are: %v \n", results)
+}
+
+func deferFunc() {
+	fmt.Println("this is the defer function call")
 }
 
 func dbCall(i int) {
