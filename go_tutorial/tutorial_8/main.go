@@ -13,7 +13,7 @@ var results = []string{}
 
 func main() {
 	t0 := time.Now()
-	for i := 0; i < len(dbData); i++ {
+	for i := range dbData {
 		waitGroups.Add(1)
 		go dbCall(i)
 	}
