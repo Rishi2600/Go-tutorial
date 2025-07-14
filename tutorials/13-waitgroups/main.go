@@ -3,6 +3,7 @@ package main
 import (
 	"fmt"
 	"sync"
+	"time"
 )
 
 func expOperation() {
@@ -26,7 +27,12 @@ func main() {
 		}()
 	}
 
-	wg.Wait()
+	time.Sleep(time.Millisecond * 2000)
 
-	fmt.Println("Done")
+	wg.Wait()
+	fmt.Println("concurrent processes done")
+
+	time.Sleep(time.Millisecond * 5000)
+
+	fmt.Println("Done! main func called")
 }
