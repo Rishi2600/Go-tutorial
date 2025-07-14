@@ -9,6 +9,7 @@ func main() {
 	c := make(chan int, 5)
 
 	go func() {
+		defer close(c)
 		for i := range 10 {
 			fmt.Println("return from the first function: ", i)
 			c <- i
