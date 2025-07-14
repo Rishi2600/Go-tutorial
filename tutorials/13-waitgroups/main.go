@@ -2,39 +2,31 @@ package main
 
 import (
 	"fmt"
+	"sync"
 )
 
-func expOperation(ch chan<- bool) {
+func expOperation() {
 	sum := 0
 	for i := range 100000000 {
 		sum += i
 	}
 	println(sum)
-	ch <- true
 }
 
 func main() {
 
-	ch1 := make(chan bool)
-	go expOperation(ch1)
+	var wg sync.WaitGroup
 
-	ch2 := make(chan bool)
-	go expOperation(ch2)
+	for range 5 {
+		wg.Add(1)
 
-	ch3 := make(chan bool)
-	go expOperation(ch3)
+		go func() {
+			defer wg.Done()
+			expOperation()
+		}()
+	}
 
-	ch4 := make(chan bool)
-	go expOperation(ch4)
-
-	ch5 := make(chan bool)
-	go expOperation(ch5)
-
-	<-ch1
-	<-ch2
-	<-ch3
-	<-ch4
-	<-ch5
+	wg.Wait()
 
 	fmt.Println("Done")
 }
