@@ -2,27 +2,32 @@ package main
 
 import (
 	"fmt"
+	"math/rand"
+	"sync"
 	"time"
 )
 
-func expensiveOp(str string) {
-
-	for i := range 3 {
-		fmt.Println(str, "-", i)
-	}
-}
-
 func main() {
+	var wg sync.WaitGroup
 
-	time1 := time.Now()
+	wg.Add(1)
+	go func() {
+		defer wg.Done()
+		for i := range 100 {
+			fmt.Println("return from the first function:", i)
+			time.Sleep(time.Millisecond * time.Duration(rand.Intn(50)))
+		}
+	}()
 
-	go expensiveOp("first")
-	go expensiveOp("second")
+	wg.Add(1)
+	go func() {
+		defer wg.Done()
+		for i := range 50 {
+			fmt.Println("return from the second function:", i)
+			time.Sleep(time.Millisecond * time.Duration(rand.Intn(100)))
+		}
+	}()
 
-	time.Sleep(time.Second * 2)
-
-	fmt.Println("Done")
-
-	timeTaken := time.Since(time1)
-	fmt.Printf("time taken: %v \n", timeTaken)
+	wg.Wait()
+	fmt.Println("Done! All the funcions called")
 }
