@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"time"
 )
 
 func sender(c chan string) {
@@ -17,9 +18,9 @@ func main() {
 
 	c := make(chan string)
 
-	defer close(c)
-
 	go sender(c)
-
 	go receiver(c)
+
+	time.Sleep(time.Millisecond * 2000)
+
 }
