@@ -6,6 +6,7 @@ import (
 )
 
 var counter int
+var m sync.Mutex
 
 func main() {
 	var wg sync.WaitGroup
@@ -16,7 +17,9 @@ func main() {
 		go func() {
 			defer wg.Done()
 
+			m.Lock()
 			counter++
+			m.Unlock()
 		}()
 
 	}
