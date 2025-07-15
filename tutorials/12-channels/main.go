@@ -2,25 +2,24 @@ package main
 
 import (
 	"fmt"
-	"time"
 )
 
+func sender(c chan string) {
+	c <- "this is the message from the sender"
+}
+
+func receiver(c chan string) {
+	message := <-c
+	fmt.Printf("message received: %v", message)
+}
+
 func main() {
-	c := make(chan int, 5)
 
-	go func() {
-		defer close(c)
-		for i := range 10 {
-			fmt.Println("return from the first function: ", i)
-			c <- i
-		}
-	}()
+	c := make(chan string)
 
-	time.Sleep(time.Millisecond * 1000)
+	defer close(c)
 
-	for values := range c {
-		fmt.Println(values)
-	}
+	go sender(c)
 
-	fmt.Println("work done!")
+	go receiver(c)
 }
