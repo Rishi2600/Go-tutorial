@@ -5,23 +5,28 @@ import (
 	"sync"
 )
 
-var wg sync.WaitGroup
-var m sync.Mutex
-var sum = 0
+type safeCounter struct {
+	m     sync.Mutex
+	value int
+}
 
 func main() {
-	for i := range 10000 {
+	var wg sync.WaitGroup
+	s := safeCounter{
+		m:     sync.Mutex{},
+		value: 0,
+	}
+
+	for i := range 100000 {
 		wg.Add(1)
 
 		go func() {
 			defer wg.Done()
-			defer m.Unlock()
-			m.Lock()
-
-			sum += i
+			defer s.m.Unlock()
+			s.m.Lock()
+			s.value += i
 		}()
 	}
 	wg.Wait()
-
-	fmt.Println("sum is: ", sum)
+	fmt.Print("sum is ", s.value)
 }
