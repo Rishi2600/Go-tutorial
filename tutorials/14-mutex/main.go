@@ -6,6 +6,7 @@ import (
 )
 
 var wg sync.WaitGroup
+var m sync.Mutex
 var sum = 0
 
 func main() {
@@ -14,6 +15,9 @@ func main() {
 
 		go func() {
 			defer wg.Done()
+			defer m.Unlock()
+			m.Lock()
+
 			sum += i
 		}()
 	}
