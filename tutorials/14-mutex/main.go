@@ -5,27 +5,19 @@ import (
 	"sync"
 )
 
-var counter int
-var m sync.Mutex
+var wg sync.WaitGroup
+var sum = 0
 
 func main() {
-	var wg sync.WaitGroup
-
-	for range 1000 {
+	for i := range 10000 {
 		wg.Add(1)
 
 		go func() {
 			defer wg.Done()
-
-			m.Lock()
-			counter++
-			m.Unlock()
+			sum += i
 		}()
-
 	}
-
 	wg.Wait()
 
-	fmt.Println("final counter: ", counter)
-
+	fmt.Println("sum is: ", sum)
 }
