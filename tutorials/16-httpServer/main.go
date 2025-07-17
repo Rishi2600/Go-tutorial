@@ -5,6 +5,8 @@ import (
 	"net/http"
 )
 
+var port int = 3000
+
 func hello(w http.ResponseWriter, req *http.Request) {
 	fmt.Fprint(w, "hello")
 }
@@ -12,5 +14,10 @@ func hello(w http.ResponseWriter, req *http.Request) {
 func main() {
 	http.HandleFunc("/hello", hello)
 
-	http.ListenAndServe(":3000", nil)
+	fmt.Printf("Server listening on port: %v...", port)
+
+	err := http.ListenAndServe(":3000", nil)
+	if err != nil {
+		fmt.Printf("Error starting server: %s\n", err)
+	}
 }
