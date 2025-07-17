@@ -14,7 +14,7 @@ func hello(w http.ResponseWriter, req *http.Request) {
 func main() {
 	http.HandleFunc("/hello", hello)
 
-	fmt.Printf("Server listening on port: %v...", port)
+	fmt.Printf("Server listening on port: %v...\n", port)
 
 	err := http.ListenAndServe(":3000", nil)
 	if err != nil {
