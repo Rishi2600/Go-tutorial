@@ -5,28 +5,22 @@ import (
 	"sync"
 )
 
-type safeCounter struct {
-	m     sync.Mutex
-	value int
+var wg sync.WaitGroup
+var data = make(map[int]int)
+
+func writeToMap(i int) {
+	defer wg.Done()
+	data[i] = i
 }
 
 func main() {
-	var wg sync.WaitGroup
-	s := safeCounter{
-		m:     sync.Mutex{},
-		value: 0,
-	}
-
-	for i := range 100000 {
+	for i := range 10000 {
 		wg.Add(1)
 
-		go func() {
-			defer wg.Done()
-			defer s.m.Unlock()
-			s.m.Lock()
-			s.value += i
-		}()
+		go writeToMap(i)
 	}
+
 	wg.Wait()
-	fmt.Print("sum is ", s.value)
+
+	fmt.Println("Done writing to map")
 }
