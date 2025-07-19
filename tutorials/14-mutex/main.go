@@ -6,15 +6,20 @@ import (
 )
 
 var wg sync.WaitGroup
-var data = make(map[int]int)
+var (
+	data = make(map[int]int)
+	m    sync.Mutex
+)
 
 func writeToMap(i int) {
 	defer wg.Done()
-	data[i] = i
+	defer m.Unlock()
+	m.Lock()
+	data[i] = i + 1
 }
 
 func main() {
-	for i := range 10000 {
+	for i := range 1000 {
 		wg.Add(1)
 
 		go writeToMap(i)
@@ -22,5 +27,6 @@ func main() {
 
 	wg.Wait()
 
-	fmt.Println("Done writing to map")
+	fmt.Println("Done writing to map, length of map:", len(data))
+	fmt.Println("data:", data)
 }
