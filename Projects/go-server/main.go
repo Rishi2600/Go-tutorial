@@ -22,7 +22,7 @@ func helloHandler(w http.ResponseWriter, r *http.Request) {
 
 func formHandler(w http.ResponseWriter, r *http.Request) {
 	if err := r.ParseForm(); err != nil {
-		fmt.Fprintf(w, "parse fomm error: %v", err)
+		fmt.Fprintf(w, "parse form error: %v", err)
 		return
 	}
 
@@ -36,11 +36,11 @@ func formHandler(w http.ResponseWriter, r *http.Request) {
 }
 
 func main() {
-	fileServer := http.FileServer(http.Dir("./static"))
-	http.Handle("/", fileServer)
-
 	http.HandleFunc("/form", formHandler)
 	http.HandleFunc("/hello", helloHandler)
+
+	fileServer := http.FileServer(http.Dir("./static"))
+	http.Handle("/", fileServer)
 
 	fmt.Printf("listening on port 8080 \n")
 
