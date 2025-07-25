@@ -6,7 +6,7 @@ func main() {
 	var intSliceEmpty = []int{1, 2, 3}
 	fmt.Println(isEmpty(intSliceEmpty))
 
-	var floatSliceEmpty = []float{1, 2, 3}
+	var floatSliceEmpty = []float64{1, 2, 3}
 	fmt.Println(isEmpty(floatSliceEmpty))
 
 	var intSliceNotEmpty = []int{1, 2, 3}
