@@ -10,5 +10,5 @@ func main() {
 		South
 	)
 
-	fmt.Println(South)
+	fmt.Println(East)
 }
