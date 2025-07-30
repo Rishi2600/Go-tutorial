@@ -3,10 +3,14 @@ package main
 import "fmt"
 
 func main() {
-	sum := 0
+	gender := "ttrans"
 
-	for i := range 10 {
-		sum = sum + i
+	switch gender {
+	case "male":
+		fmt.Println("you are male")
+	case "female":
+		fmt.Println("you are female")
+	default:
+		fmt.Println("neither male nor female")
 	}
-	fmt.Println(sum)
 }
