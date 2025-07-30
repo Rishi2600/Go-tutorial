@@ -7,6 +7,6 @@ func main() {
 
 	for i := range 10 {
 		sum = sum + i
-		fmt.Println(sum)
 	}
+	fmt.Println(sum)
 }
