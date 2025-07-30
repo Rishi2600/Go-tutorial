@@ -7,7 +7,7 @@ func main() {
 	sum := 0
 
 	for i := range array {
-		sum += i
+		sum += array[i]
 	}
 	fmt.Println(sum)
 }
