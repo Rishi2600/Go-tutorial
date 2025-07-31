@@ -9,9 +9,9 @@ type rect struct {
 
 func main() {
 	value := rect{height: 5, width: 5}
-	fmt.Println(area(value))
+	fmt.Println(value.area())
 }
 
-func area(r rect) int {
+func (r rect) area() int {
 	return r.height * r.width
 }
