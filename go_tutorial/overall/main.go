@@ -3,11 +3,17 @@ package main
 import "fmt"
 
 func main() {
-	var array [5]int = [5]int{1, 2, 3, 4, 50}
-	var slice []int = make([]int, 5)
+	var object = make(map[string]string)
 
-	slice = append(slice, 56)
+	object["age1"] = "56"
+	object["age2"] = "6"
+	object["age3"] = "5"
+	object["age4"] = "567"
 
-	fmt.Println(array, slice)
+	var _, exists = object["map3"]
+	var _, existss = object["age4"]
+
+	println(object)
+	fmt.Println(object, exists, existss)
 
 }
