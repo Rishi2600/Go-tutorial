@@ -13,7 +13,7 @@ func main() {
 	var _, exists = object["map3"]
 	var value, existss = object["age4"]
 
-	println(object)
+	println(object) /*this print the pointer location of the specific map instead of the map itself.*/
 	fmt.Println(object, exists)
 	fmt.Printf("exists: %v & value: %v", existss, value)
 
