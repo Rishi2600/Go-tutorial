@@ -11,9 +11,10 @@ func main() {
 	object["age4"] = "567"
 
 	var _, exists = object["map3"]
-	var _, existss = object["age4"]
+	var value, existss = object["age4"]
 
 	println(object)
-	fmt.Println(object, exists, existss)
+	fmt.Println(object, exists)
+	fmt.Printf("exists: %v & value: %v", existss, value)
 
 }
