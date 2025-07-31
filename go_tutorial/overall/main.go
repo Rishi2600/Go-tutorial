@@ -3,9 +3,15 @@ package main
 import "fmt"
 
 func main() {
-	var sum = func(a, b int) int {
-		return a + b
-	}(2, 3)
+	funcValue := multiply(5)
+	finalValue := funcValue(5)
 
-	fmt.Println(sum)
+	fmt.Println(finalValue)
+
+}
+
+func multiply(n int) func(num int) int {
+	return func(num int) int {
+		return num * n
+	}
 }
