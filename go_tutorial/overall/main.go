@@ -2,16 +2,16 @@ package main
 
 import "fmt"
 
-func main() {
-	funcValue := multiply(5)
-	finalValue := funcValue(5)
-
-	fmt.Println(finalValue)
-
+type rect struct {
+	height int
+	width  int
 }
 
-func multiply(n int) func(num int) int {
-	return func(num int) int {
-		return num * n
-	}
+func main() {
+	value := rect{height: 5, width: 5}
+	fmt.Println(area(value))
+}
+
+func area(r rect) int {
+	return r.height * r.width
 }
