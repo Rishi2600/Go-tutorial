@@ -3,18 +3,9 @@ package main
 import "fmt"
 
 func main() {
-	var object = make(map[string]string)
+	var sum = func(a, b int) int {
+		return a + b
+	}(2, 3)
 
-	object["age1"] = "56"
-	object["age2"] = "6"
-	object["age3"] = "5"
-	object["age4"] = "567"
-
-	var _, exists = object["map3"]
-	var value, existss = object["age4"]
-
-	println(object) /*this print the pointer location of the specific map instead of the map itself.*/
-	fmt.Println(object, exists)
-	fmt.Printf("exists: %v & value: %v", existss, value)
-
+	fmt.Println(sum)
 }
