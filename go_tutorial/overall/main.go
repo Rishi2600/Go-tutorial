@@ -13,5 +13,7 @@ func main() {
 }
 
 func (r rect) area() int {
+	r.height = 1000
+
 	return r.height * r.width
 }
