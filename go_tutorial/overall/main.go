@@ -15,4 +15,6 @@ func main() {
 
 	ch <- 10
 
+	fmt.Println("done")
+
 }
