@@ -2,12 +2,15 @@ package main
 
 import (
 	"fmt"
-	"time"
+	"sync"
 )
 
 func main() {
 
 	ch := make(chan int)
+	var wg sync.WaitGroup
+
+	wg.Add(2)
 
 	go func() {
 		sum := 0
@@ -15,6 +18,7 @@ func main() {
 			sum += i
 		}
 		ch <- sum
+		defer wg.Done()
 	}()
 	go func() {
 		sum := 0
@@ -23,9 +27,10 @@ func main() {
 		}
 		prev := <-ch
 		fmt.Println(prev + sum)
+		defer wg.Done()
 	}()
 
-	time.Sleep(time.Second * 2)
+	wg.Wait()
 
 	fmt.Println("done")
 }
