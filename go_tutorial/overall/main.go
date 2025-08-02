@@ -7,21 +7,22 @@ import (
 
 func main() {
 
-	sum := 0
+	ch := make(chan int)
 
 	go func() {
-		for i := range 3 {
+		sum := 0
+		for i := range 55 {
 			sum += i
-			fmt.Println(sum)
 		}
-		fmt.Println(sum)
+		ch <- sum
 	}()
 	go func() {
-		for i := range 3 {
+		sum := 0
+		for i := 55; i < 101; i++ {
 			sum += i
-			fmt.Println(sum)
 		}
-		fmt.Println(sum)
+		prev := <-ch
+		fmt.Println(prev + sum)
 	}()
 
 	time.Sleep(time.Second * 2)
