@@ -15,9 +15,6 @@ func main() {
 		}
 		ch <- sum
 	}()
-	firstSum := <-ch
-	fmt.Println(firstSum)
-
 	go func() {
 		sum := 0
 		for i := 50; i < 101; i++ {
@@ -25,9 +22,9 @@ func main() {
 		}
 		ch <- sum
 	}()
-	secondSum := <-ch
-	fmt.Println(secondSum)
 
-	fmt.Println(firstSum + secondSum)
+	firstSum := <-ch
+	secondSum := <-ch
+	fmt.Println(firstSum, secondSum, firstSum+secondSum)
 
 }
