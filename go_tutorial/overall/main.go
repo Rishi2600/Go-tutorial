@@ -5,6 +5,8 @@ import (
 	"time"
 )
 
+var ch = make(chan int)
+
 func expensiveOp(ch chan int) {
 	sum := 0
 	for i := range 10 {
@@ -15,8 +17,6 @@ func expensiveOp(ch chan int) {
 }
 
 func main() {
-
-	ch := make(chan int)
 
 	go expensiveOp(ch)
 
