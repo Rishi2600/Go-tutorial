@@ -1,19 +1,23 @@
 package main
 
-import "fmt"
-
-type rect struct {
-	height int
-	width  int
-}
+import (
+	"fmt"
+	"time"
+)
 
 func main() {
-	value := rect{height: 5, width: 5}
-	fmt.Println(value.area())
-}
+	go func() {
+		for i := range 1000 {
+			fmt.Println(i)
+		}
+	}()
+	go func() {
+		for i := range 1000 {
+			fmt.Println(i)
+		}
+	}()
 
-func (r rect) area() int {
-	r.height = 1000
+	time.Sleep(time.Second * 2)
 
-	return r.height * r.width
+	fmt.Println("done")
 }
