@@ -2,35 +2,28 @@ package main
 
 import (
 	"fmt"
-	"sync"
+	"time"
 )
+
+func expensiveOp(ch chan int) {
+	sum := 0
+	for i := range 10 {
+		sum += i
+	}
+
+	ch <- sum
+}
 
 func main() {
 
 	ch := make(chan int)
-	var wg sync.WaitGroup
 
-	wg.Add(2)
+	go expensiveOp(ch)
 
-	go func() {
-		sum := 0
-		for i := range 55 {
-			sum += i
-		}
-		ch <- sum
-		defer wg.Done()
-	}()
-	go func() {
-		sum := 0
-		for i := 55; i < 101; i++ {
-			sum += i
-		}
-		prev := <-ch
-		fmt.Println(prev + sum)
-		defer wg.Done()
-	}()
+	finalSum := <-ch
 
-	wg.Wait()
+	fmt.Println(finalSum)
 
+	time.Sleep(time.Millisecond * 2000)
 	fmt.Println("done")
 }
