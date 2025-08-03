@@ -5,26 +5,21 @@ import (
 	"sync"
 )
 
-func expensiveOp() {
-	sum := 0
-	for i := range 1000 {
-		sum += i
-	}
-	fmt.Printf("goroutine working, sum is: %v \n", sum)
-}
-
 func main() {
 	var wg sync.WaitGroup
+	sum := 0
 
-	for range 5 {
+	for range 1000 {
 		wg.Add(1)
 
 		go func() {
 			defer wg.Done()
-			expensiveOp()
+			for range 100 {
+				sum += 1
+			}
 		}()
 	}
 
 	wg.Wait()
-	fmt.Println("main thread exists")
+	fmt.Println(sum)
 }
