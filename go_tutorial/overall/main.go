@@ -5,8 +5,7 @@ import (
 	"sync"
 )
 
-func expensiveOp(wg *sync.WaitGroup) {
-	defer wg.Done()
+func expensiveOp() {
 	sum := 0
 	for i := range 1000 {
 		sum += i
@@ -20,7 +19,10 @@ func main() {
 	for range 5 {
 		wg.Add(1)
 
-		go expensiveOp(&wg)
+		go func() {
+			defer wg.Done()
+			expensiveOp()
+		}()
 	}
 
 	wg.Wait()
