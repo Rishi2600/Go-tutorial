@@ -2,22 +2,20 @@ package main
 
 import (
 	"fmt"
-	"sync"
+	"time"
 )
 
 func main() {
 
-	ch := make(chan int)
-	var wg sync.WaitGroup
+	ch := make(chan int, 10)
 
-	wg.Add(1)
 	go func() {
-		defer wg.Done()
-		value := <-ch
-		fmt.Println(value)
+		for i := range 10 {
+			fmt.Printf("iterated value: %v \n", i)
+			ch <- i
+		}
 	}()
 
-	ch <- 10
-
-	wg.Wait()
+	time.Sleep(time.Second * 2)
+	fmt.Printf("channel value: %v \n", <-ch)
 }
