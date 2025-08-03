@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"time"
 )
 
 func main() {
@@ -14,5 +15,6 @@ func main() {
 		fmt.Printf("goroutine working, sum is: %v \n", sum)
 	}()
 
+	time.Sleep(time.Second * 5)
 	fmt.Println("main thread exit")
 }
