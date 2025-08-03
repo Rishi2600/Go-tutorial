@@ -16,6 +16,9 @@ func main() {
 		}
 	}()
 
-	time.Sleep(time.Second * 5)
+	time.Sleep(time.Second * 2)
 	fmt.Printf("channel value: %v \n", <-ch)
+
+	time.Sleep(time.Second * 5)
+	fmt.Println("DONE")
 }
