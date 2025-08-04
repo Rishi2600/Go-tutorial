@@ -7,7 +7,16 @@ import (
 )
 
 func helloHandler(w http.ResponseWriter, r *http.Request) {
+	if r.URL.Path != "/hello" {
+		http.Error(w, "404 route not found", http.StatusNotFound)
+		return
+	}
+	if r.Method != "GET" {
+		http.Error(w, "request method is wrong", http.StatusNotFound)
+		return
+	}
 
+	fmt.Fprintf(w, "Hello")
 }
 
 func formHandler(w http.ResponseWriter, r *http.Request) {
