@@ -25,6 +25,11 @@ var movies []Movie
 func main() {
 	r := mux.NewRouter()
 
+	fmt.Println(movies)
+	movies = append(movies, Movie{ID: "1", Isbn: "01", Title: "first movie", Director: &Director{FirstName: "X", LastName: "Nolan"}})
+	movies = append(movies, Movie{ID: "2", Isbn: "02", Title: "second movie", Director: &Director{FirstName: "Y", LastName: "Kashyap"}})
+	fmt.Println(movies)
+
 	r.HandleFunc("/movies", getMovies).Methods("GET")
 	r.HandleFunc("/movies/{id}", getMovie).Methods("GET")
 	r.HandleFunc("/movies", createMovie).Methods("POST")
