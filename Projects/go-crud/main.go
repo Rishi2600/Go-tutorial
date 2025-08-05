@@ -22,6 +22,26 @@ type Director struct {
 
 var movies []Movie
 
+func getMovies(w http.ResponseWriter, r *http.Request) {
+
+}
+
+func deleteMovie(w http.ResponseWriter, r *http.Request) {
+
+}
+
+func getMovie(w http.ResponseWriter, r *http.Request) {
+
+}
+
+func createMovie(w http.ResponseWriter, r *http.Request) {
+
+}
+
+func updateMovie(w http.ResponseWriter, r *http.Request) {
+
+}
+
 func main() {
 	r := mux.NewRouter()
 
