@@ -1,6 +1,7 @@
 package main
 
 import (
+	"encoding/json"
 	"fmt"
 	"log"
 	"net/http"
@@ -23,7 +24,8 @@ type Director struct {
 var movies []Movie
 
 func getMovies(w http.ResponseWriter, r *http.Request) {
-
+	w.Header().Set("content-type", "application/json")
+	json.NewEncoder(w).Encode(movies)
 }
 
 func deleteMovie(w http.ResponseWriter, r *http.Request) {
@@ -64,3 +66,5 @@ func main() {
 		log.Fatal(err)
 	}
 }
+
+//db - connect db > bring the value from the db/db operations > bring it to the route and give it a varibale > send that varibale as the response.
