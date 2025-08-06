@@ -66,5 +66,3 @@ func main() {
 		log.Fatal(err)
 	}
 }
-
-//db - connect db > bring the value from the db/db operations > bring it to the route and give it a varibale > send that varibale as the response.
