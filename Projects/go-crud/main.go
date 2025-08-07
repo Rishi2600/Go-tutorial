@@ -52,8 +52,8 @@ func main() {
 	movies = append(movies, Movie{ID: "2", Isbn: "02", Title: "second movie", Director: &Director{FirstName: "Y", LastName: "Kashyap"}})
 	fmt.Println(movies)
 
-	http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
-		fmt.Fprintln(w, "Landing Page.")
+	r.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
+		fmt.Fprintln(w, "Landing Page")
 	})
 	r.HandleFunc("/movies", getMovies).Methods("GET")
 	r.HandleFunc("/movies/{id}", getMovie).Methods("GET")
@@ -63,7 +63,7 @@ func main() {
 
 	port := 8000
 	fmt.Printf("server listening on port: %v \n", port)
-	err := http.ListenAndServe(":8000", nil)
+	err := http.ListenAndServe(":8000", r)
 
 	if err != nil {
 		log.Fatal(err)
