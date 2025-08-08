@@ -30,7 +30,7 @@ func getMovies(w http.ResponseWriter, r *http.Request) {
 
 func deleteMovie(w http.ResponseWriter, r *http.Request) {
 	w.Header().Set("content-type", "application/json")
-	//params are determined for dynamic routes.
+
 	params := mux.Vars(r)
 
 	for index, item := range movies {
