@@ -67,9 +67,20 @@ func createMovie(w http.ResponseWriter, r *http.Request) {
 }
 
 func updateMovie(w http.ResponseWriter, r *http.Request) {
-	//the insight will be to fetch the corresponding movie via params through looping the slice --just like in the deleteMovie
-	//or the getMovie route handler and then changing the inputs via r.body approach just like we did in createMovie route
-	//this is a sort of combination of the above routes
+	w.Header().Set("content-type", "applcation/json")
+
+	params := mux.Vars(r)
+	for _, item := range movies {
+		if item.ID == params["id"] {
+			var movie Movie
+			json.NewDecoder(r.Body).Decode(&movie)
+			movie.ID = strconv.Itoa(rand.Intn(1000))
+			movies = append(movies, movie)
+
+			return
+		}
+	}
+	json.NewEncoder(w).Encode(movies)
 }
 
 func main() {
