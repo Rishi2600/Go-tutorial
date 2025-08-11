@@ -77,7 +77,7 @@ func main() {
 	r.HandleFunc("/movies/{id}", getMovie).Methods("GET")
 	r.HandleFunc("/movies", createMovie).Methods("POST")
 	r.HandleFunc("/movies/{id}", updateMovie).Methods("PUT")
-	r.HandleFunc("/movie/{id}", deleteMovie).Methods("DELETE")
+	r.HandleFunc("/movies/{id}", deleteMovie).Methods("DELETE")
 
 	port := 8000
 	fmt.Printf("server listening on port: %v \n", port)
