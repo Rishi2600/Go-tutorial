@@ -67,7 +67,9 @@ func createMovie(w http.ResponseWriter, r *http.Request) {
 }
 
 func updateMovie(w http.ResponseWriter, r *http.Request) {
-
+	//the insight will be to fetch the corresponding movie via params through looping the slice --just like in the deleteMovie
+	//or the getMovie route handler and then changing the inputs via r.body approach just like we did in createMovie route
+	//this is a sort of combination of the above routes
 }
 
 func main() {
