@@ -70,8 +70,10 @@ func updateMovie(w http.ResponseWriter, r *http.Request) {
 	w.Header().Set("content-type", "applcation/json")
 
 	params := mux.Vars(r)
-	for _, item := range movies {
+	for index, item := range movies {
 		if item.ID == params["id"] {
+			movies = append(movies[:index], movies[index+1:]...)
+
 			var movie Movie
 			json.NewDecoder(r.Body).Decode(&movie)
 			movie.ID = strconv.Itoa(rand.Intn(1000))
