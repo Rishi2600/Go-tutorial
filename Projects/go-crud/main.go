@@ -53,7 +53,7 @@ func getMovie(w http.ResponseWriter, r *http.Request) {
 			json.NewEncoder(w).Encode(item)
 			return
 		} else {
-			fmt.Fprintf(w, "id not found")
+			json.NewEncoder(w).Encode("id is wrong")
 		}
 	}
 }
@@ -63,6 +63,7 @@ func createMovie(w http.ResponseWriter, r *http.Request) {
 	var movie Movie
 	json.NewDecoder(r.Body).Decode(&movie)
 	movie.ID = strconv.Itoa(rand.Intn(1000))
+	movie.Isbn = movie.ID
 	movies = append(movies, movie)
 
 	json.NewEncoder(w).Encode(movies)
