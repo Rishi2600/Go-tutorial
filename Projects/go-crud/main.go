@@ -78,17 +78,12 @@ func updateMovie(w http.ResponseWriter, r *http.Request) {
 			json.NewDecoder(r.Body).Decode(&movie)
 			movie.ID = strconv.Itoa(rand.Intn(1000))
 			movies = append(movies, movie)
+			json.NewEncoder(w).Encode(movies)
 
 			return
 		}
 	}
-	json.NewEncoder(w).Encode(movies)
 
-	//set josn content type
-	//access params
-	//loop over movies
-	//delete the movie of the selected id
-	//add a new movie with the given details through the body
 }
 
 func main() {
