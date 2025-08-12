@@ -52,6 +52,8 @@ func getMovie(w http.ResponseWriter, r *http.Request) {
 		if item.ID == params["id"] {
 			json.NewEncoder(w).Encode(item)
 			return
+		} else {
+			fmt.Fprintf(w, "id not found")
 		}
 	}
 }
