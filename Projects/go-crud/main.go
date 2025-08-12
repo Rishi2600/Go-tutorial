@@ -52,10 +52,9 @@ func getMovie(w http.ResponseWriter, r *http.Request) {
 		if item.ID == params["id"] {
 			json.NewEncoder(w).Encode(item)
 			return
-		} else {
-			json.NewEncoder(w).Encode("id is wrong")
 		}
 	}
+	fmt.Fprintf(w, "wrong id passed")
 }
 
 func createMovie(w http.ResponseWriter, r *http.Request) {
