@@ -81,6 +81,8 @@ func updateMovie(w http.ResponseWriter, r *http.Request) {
 			json.NewEncoder(w).Encode(movies)
 
 			return
+		} else {
+			fmt.Fprintf(w, "Error 404 --made by me")
 		}
 	}
 
