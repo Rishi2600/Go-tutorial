@@ -81,6 +81,12 @@ func updateMovie(w http.ResponseWriter, r *http.Request) {
 		}
 	}
 	json.NewEncoder(w).Encode(movies)
+
+	//set josn content type
+	//access params
+	//loop over movies
+	//delete the movie of the selected id
+	//add a new movie with the given details through the body
 }
 
 func main() {
