@@ -3,7 +3,7 @@ package main
 import "fmt"
 
 type messageTosend struct {
-	phoneNumber int64
+	phoneNumber int
 	message     string
 	number      struct {
 		area string
