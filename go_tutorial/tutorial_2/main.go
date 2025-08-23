@@ -16,7 +16,7 @@ func main() {
 }
 
 func printMe() {
-	fmt.Println("")
+	fmt.Println("Hello there")
 }
 
 func greet(props string) {
