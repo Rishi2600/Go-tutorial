@@ -13,7 +13,3 @@ var RegisterBookStoreRoutes = func(router *mux.Router) {
 	router.HandleFunc("/book/{bookid}", controller.updateBook).Methods("PUT")
 	router.HandleFunc("/book/{bookid}", controller.DeleteBook).Methods("DELETE")
 }
-
-//the purpose behind adding all the routes in a func other than main and assigning it to a variable,
-//is just to add all the values of the routes to that particular variable and thus the var can be used further in different
-//packages or function (including main).
