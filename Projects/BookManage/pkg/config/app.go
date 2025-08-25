@@ -9,7 +9,7 @@ var (
 	db *gorm.DB
 )
 
-func Connect() *gorm.DB {
+func Connect() {
 	d, err := gorm.Open("mysql", "Rishi:Rishi@/testSQL?charset=utf8&parseTime=True&loc=Local")
 
 	if err != nil {
@@ -18,5 +18,8 @@ func Connect() *gorm.DB {
 
 	db = d
 
+}
+
+func GetDB() *gorm.DB {
 	return db
 }
