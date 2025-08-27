@@ -4,7 +4,7 @@ import "fmt"
 
 type object struct {
 	name string
-	age  uint
+	age  uint8
 }
 
 func (e object) details() string {
