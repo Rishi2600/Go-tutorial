@@ -9,7 +9,7 @@ type object struct {
 
 func (e object) details() string {
 	fmt.Print(e.name, e.age)
-	return e.name
+	
 }
 
 func main() {
