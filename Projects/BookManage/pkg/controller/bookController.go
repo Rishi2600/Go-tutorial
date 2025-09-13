@@ -56,7 +56,7 @@ func DeleteBook(w http.ResponseWriter, r *http.Request) {
 	ID, err := strconv.ParseInt(bookId, 0, 0)
 
 	if err != nil {
-		fmt.Println("error while parsing the request body.")
+		fmt.Println("error while parsing ID from the request body.")
 	}
 
 	book := models.DeleteBook(ID)
