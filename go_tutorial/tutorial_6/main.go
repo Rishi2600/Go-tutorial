@@ -3,7 +3,7 @@ package main
 import "fmt"
 
 type object struct {
-	name string
+	name 
 	age  uint8
 }
 
