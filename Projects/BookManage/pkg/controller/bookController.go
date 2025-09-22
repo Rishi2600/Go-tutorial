@@ -99,7 +99,3 @@ func UpdateBook(w http.ResponseWriter, r *http.Request) {
 	w.Write(res)
 	fmt.Printf("updated book: %v", res)
 }
-
-//in this approach of UpdateBooks we are directly fetching the selected book from the db using the getBookById and then,
-//directly replacing the old values with the new given value from the request and not doing somthing like,
-//getting the book by Id and then deleting that particular book followed by creating a new book in place of that deleted book of that Id.
