@@ -6,8 +6,8 @@ func main() {
 	const (
 		East 
 		West 
-		North = iota
-		South
+		North 
+		South = iota
 	)
 
 	fmt.Println(East)
