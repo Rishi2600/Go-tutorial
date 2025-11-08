@@ -5,8 +5,8 @@ import "fmt"
 func main() {
 	const (
 		East 
-		West = iota
-		North
+		West 
+		North = iota
 		South
 	)
 
