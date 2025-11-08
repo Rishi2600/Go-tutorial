@@ -4,10 +4,10 @@ import "fmt"
 
 func main() {
 	const (
-		East 
-		West 
+		East = iota 
+		West
 		North 
-		South = iota
+		South
 	)
 
 	fmt.Println(East)
